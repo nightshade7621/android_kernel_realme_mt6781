@@ -54,7 +54,7 @@ function compile() {
   PATH="${PWD}/clang/bin:${PATH}"
 
   # Build the kernel with clang and log output
-  make -j$(nproc --all) O=out CC="clang" LLVM=1 CONFIG_NO_ERROR_ON_MISMATCH=y 2>&1 | tee build.log
+  make -j$(nproc --all) O=out CC="clang" LLVM=1 LLVM_IAS=1 CONFIG_NO_ERROR_ON_MISMATCH=y 2>&1 | tee build.log
 }
 
 function zupload()
